@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, Http } from '@angular/http';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController } from 'ionic-angular';
 import { RouterModule } from '@angular/router';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 
@@ -123,6 +123,8 @@ export function provideSettings(storage: Storage) {
     GoogleMaps,
     SplashScreen,
     StatusBar,
+    UserService,
+    { provide: UserApi, useExisting: UserService },
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },

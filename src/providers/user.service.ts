@@ -1,13 +1,12 @@
-import { Injectable, Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFireAuthModule, AngularFireAuth, AUTH_PROVIDERS } from 'angularfire2/auth';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AuthProvider } from 'firebase/auth';
 import { Observable } from 'rxjs/Rx';
 import { UserApi } from '../interfaces/user-api';
 import { MyUserData } from '../models/my-user-data';
+////import { NavController } from 'ionic-angular';
+import { MainPage } from '../pages/pages';
 
 @Injectable()
 export class UserService implements UserApi {
@@ -15,7 +14,8 @@ export class UserService implements UserApi {
   userData: MyUserData;
   user: Observable<firebase.User>;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router) {
+  constructor(////public navCtrl: NavController,
+                public afAuth: AngularFireAuth) {
     this.user = afAuth.authState;
   }
 
@@ -68,7 +68,7 @@ export class UserService implements UserApi {
 
   signOut(): Observable<any> {
     this.isAuthenticated = false;
-    this.router.navigate(['/signin']);
+    ////this.navCtrl.push(MainPage);
     return Observable.of({});
   }
 }

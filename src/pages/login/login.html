@@ -8,6 +8,51 @@
 
 
 <ion-content>
+  Hi!
+<section [ngSwitch]="isAuth">
+IsAuth!
+  <h3 *ngSwitchCase="false">Choose your Identity Provider</h3>
+False!
+  <ion-card *ngSwitchCase="false">
+
+    <button ion-raised-button (click)="login('google')">
+      <img width="30" src="./assets/google-logo.png" />Use My Google Account
+    </button>
+
+    <button ion-raised-button (click)="login('facebook')">
+      <img width="30" src="./assets/facebook-logo.png" />Use My Facebook Account
+    </button>
+
+    <button ion-raised-button (click)="login('twitter')">
+      <img width="30" src="./assets/twitter-logo.png" />Use My Twitter Account
+    </button>
+
+    <button ion-raised-button (click)="login('github')">
+      <img width="30" src="./assets/github-logo.png" />Use My Github Account
+    </button>
+
+  </ion-card>
+
+  <ion-card *ngSwitchCase="true">
+    True!
+    <ion-card-header>
+      <img ion-card-avatar [src]="user.avatar || 'avatar.png'">
+      <ion-card-title>{{ user.name }}</ion-card-title>
+      <ion-card>{{ user.email || '(no email)' }}</ion-card>
+    </ion-card-header>
+    <img ion-card-image src="ion-banner.jpg">
+    <ion-card-content>
+      <p>You are logged in using <strong>{{ user.provider }}</strong></p>
+    </ion-card-content>
+    <button ion-raised-button (click)="logout()">
+        Logout
+      </button>
+  </ion-card>
+
+
+</section>
+
+
   <form (submit)="doLogin()">
     <ion-list>
 
