@@ -1,4 +1,5 @@
 <ion-menu [content]="content">
+  this is the menu
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
@@ -9,3 +10,4 @@
 </ion-menu>
 
 <ion-nav #content [root]="rootPage"></ion-nav>
+

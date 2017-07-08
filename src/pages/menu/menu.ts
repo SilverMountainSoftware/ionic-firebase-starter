@@ -4,6 +4,7 @@ import { NavController, Nav } from 'ionic-angular';
 import { ContentPage } from '../content/content';
 import { LoginPage } from '../login/login';
 import { SignupPage } from '../signup/signup';
+import { CardsPage } from '../cards/cards'
 
 
 @Component({

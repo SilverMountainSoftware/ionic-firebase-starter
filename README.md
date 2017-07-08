@@ -1,3 +1,18 @@
+# Connecting to firebase
+_You need to add a src/environments/environment.ts file like:_
+
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: 'your api key',
+    authDomain: 'your authDomain.firebaseapp.com',
+    databaseURL: 'https://yourdatabaseURL.firebaseio.com',
+    projectId: 'yourprojectid',
+    storageBucket: 'yourstoragebucket.appspot.com',
+    messagingSenderId: '99999999999'
+  }
+};
+
 # The Ionic Super Starter 🎮
 
 _Note: the Ionic Super Starter requires Ionic CLI 3._
